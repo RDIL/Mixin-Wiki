@@ -1,0 +1,22 @@
+site_name: Mixin Wiki
+
+nav:
+  - Home: index.md
+  - "What are Mixins": what-are-mixins.md
+  - "Mixin Basics": mixin-basics.md
+
+theme: readthedocs
+
+repo_name: 'RDIL/Mixin-Wiki'
+repo_url: 'https://github.com/RDIL/Mixin-Wiki'
+
+plugins:
+  - minify:
+      minify_html: true
+  - progress
+
+site_description: Extended documentation for SpongePowered Mixin.
+site_url: https://mixin-wiki.readthedocs.io
+site_author: Reece Dunham
+copyright: Copyright (©) Reece Dunham 2020-present.
+remote_branch: master

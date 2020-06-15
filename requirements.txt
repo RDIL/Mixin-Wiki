@@ -1,0 +1,3 @@
+mkdocs
+mkdocs-plugin-progress>=1.1.4
+mkdocs-minify-plugin

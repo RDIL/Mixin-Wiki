@@ -4,6 +4,7 @@ nav:
   - Home: index.md
   - "What are Mixins": what-are-mixins.md
   - "Mixin Basics": mixin-basics.md
+  - "Overwriting Methods": overwriting-methods.md
 
 theme: readthedocs
 

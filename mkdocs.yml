@@ -5,6 +5,7 @@ nav:
   - "What are Mixins": what-are-mixins.md
   - "Mixin Basics": mixin-basics.md
   - "Overwriting Methods": overwriting-methods.md
+  - "Mixin Tricks": tricks.md
 
 theme: readthedocs
 

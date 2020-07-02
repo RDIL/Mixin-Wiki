@@ -5,12 +5,13 @@ nav:
   - "What are Mixins": what-are-mixins.md
   - "Mixin Basics": mixin-basics.md
   - "Overwriting Methods": overwriting-methods.md
+  - "Redirecting Method Calls": redirecting-method-calls.md
   - "Mixin Tricks": tricks.md
 
 theme: readthedocs
 
-repo_name: 'RDIL/Mixin-Wiki'
-repo_url: 'https://github.com/RDIL/Mixin-Wiki'
+repo_name: "RDIL/Mixin-Wiki"
+repo_url: "https://github.com/RDIL/Mixin-Wiki"
 
 plugins:
   - minify:

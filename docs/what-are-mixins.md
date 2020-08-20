@@ -4,7 +4,7 @@ title: What are Mixins?
 
 # What are Mixins?
 
-Mixins are a way of modifying Java programs during runtime by injecting code into targeted methods and classes.
+Mixin is a framework for modifying Java programs during runtime by injecting code into targeted methods and classes.
 
 Mixin was built to work for Minecraft, but also supports any environment where you control the classloading.
 

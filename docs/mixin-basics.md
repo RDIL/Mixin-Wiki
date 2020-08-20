@@ -38,7 +38,7 @@ public class MixinSomeJavaFile {
     // signal that we want to inject into a method
     @Inject(
         method = "<init>",  // the jvm bytecode signature for the constructor
-        at = @At("HEAD")  // tell mixin we want to run this at the very beginning, not in the middle or the end
+        at = @At("HEAD")  // signal that this void should be run at the method HEAD, meaning the first opcode
     )
     public void constructorHead(
         // you will need to put any parameters the constructor accepts here, they will be the actual passed values
@@ -72,8 +72,10 @@ public class MixinSomeJavaFile {
     // signal that we want to inject into a method
     @Inject(
         method = "myMethod",  // the method's signature, or just its name
-        at = @At("HEAD")  // tell mixin we want to run this at the very beginning, not in the middle or the end
+        at = @At("HEAD")  // signal that this void should be run at the method HEAD, meaning the first opcode
     )
+    // note that this void here can be named whatever you want, as long as it doesn't conflict with other methods
+    // for style reasons, most people just keep the name of this the same as the name of the target method.
     public void myMethodHead(
         // again, put the parameters the method accepts here
         // and also keep this:

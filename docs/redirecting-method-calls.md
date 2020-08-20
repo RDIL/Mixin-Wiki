@@ -4,12 +4,13 @@ Redirecting method calls, or just using a `Redirect`, is a way that you can make
 This is handy in situations like when you just want that one `void` to do something else, but don't want to overwrite it or do a head injection and cancellation.
 Redirects are very powerful, and can help development a ton.
 
-Here is how you can use a basic redirect:
+Here is how you can use a basic redirect to change a `System.out.println` call into a call to your app's logger:
 
 ```java
-package my.cool.thing.mixins;
+package my.mixins;
 
-import some.TargetClass;
+import code.TargetClass;
+import code.Logger;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,9 +18,17 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(TargetClass.class)
 public class MixinTargetClass {
-    @Redirect(method = "exampleVoid", at = @At(value = "INVOKE", target = "Lsome/OtherClass;doStuff(Ljava/lang/String;I)I"))
-    private int getSomeData(OtherClass otherClass, String myString, int myInt) {
-        return myString.length * myInt;
+    @Redirect(
+        // the method this function is called in
+        method = "exampleVoid",
+        // target the invocation of System.out.println
+        at = @At(
+            value = "INVOKE",
+            target = "Ljava/lang/System;println(Ljava/lang/String;)V"
+        )
+    )
+    private void println(String message) {
+        Logger.info(message);
     }
 }
 ```
@@ -27,32 +36,19 @@ public class MixinTargetClass {
 In this example, we are targeting a void that looks like this:
 
 ```java
-package some;
+package code;
 
 public class TargetClass {
     public void exampleVoid() {
-        OtherClass oc = new OtherClass();
-        oc.doStuff("hello world", 5);
-    }
-}
-```
-
-(with the `OtherClass` looking like this):
-
-```java
-package some;
-
-public class OtherClass {
-    public int doStuff(String myString, int myInt) {
-        return myString == "hello" ? 5 : 4;
+        System.out.println("Hey!");
     }
 }
 ```
 
 We can already notice a few things:
 
-1. The redirect accepts the instance of the class being called, in this case, it would be the OtherClass instance being used in the target method.
-1. The redirect accepts the arguments given (like any mixin with an `At` value of `INVOKE`).
+1. The redirect accepts the instance of the class being called, but in this instance it is excluded because `println` is a static method.
+1. The redirect accepts the arguments given to the method in the `At` (like any mixin with an `At` value of `INVOKE`).
 1. The return type of the mixin method matches that of the targeted.
 
 Once you understand this, you get a powerful tool that you can use when you need to, that also saves time, effort, and avoids complexity!

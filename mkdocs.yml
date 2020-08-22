@@ -6,6 +6,7 @@ nav:
   - "Mixin Basics": mixin-basics.md
   - "Overwriting Methods": overwriting-methods.md
   - "Redirecting Method Calls": redirecting-method-calls.md
+  - "Accessors and Invokers": accessors-and-invokers.md
   - "Mixin Tricks": tricks.md
 
 theme: readthedocs

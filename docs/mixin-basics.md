@@ -1,6 +1,6 @@
 # Mixin Basics
 
-Here is a basic mixin example:
+Here is a basic mixin class example:
 
 ```java
 package my.project.mixins;

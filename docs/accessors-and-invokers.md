@@ -4,11 +4,12 @@ title: Accessors and Invokers
 
 Accessors and Invokers are ways of gaining access to non-public class members without the pain of needing to use reflection.
 
-# Invokers
+## Invokers
 
-Since invokers are a bit more simple, we will take a look at them first. Invokers allow you to *invoke* methods, plain and simple.
+Since invokers are a bit more simple, we will take a look at them first.
+Invokers allow you to generate methods that just invoke target methods, plain and simple.
 
-To use an invoker, you will want to create a new mixin **even if** you have a mixin for the target class already.
+To use an invoker, you will want to create a new mixin *even if* you have a mixin for the target class already (unless the existing mixin is an interface mixin).
 
 This mixin will be unique, because it will need to be an interface.
 
@@ -32,15 +33,13 @@ public interface IMixinPrivateApiThing {
 }
 ```
 
-(Note: for style reasons, interface mixins are typically named `IMixin<target class name>)`)
-
 Now that we have created this interface mixin, we can use it by casting the target class to the interface:
 
 ```java
 ((IMixinPrivateApiThing) PrivateApiThing).callDoAction(action);
 ```
 
-# Accessors
+## Accessors
 
 Accessors are done in almost the exact same way as invokers, just with a few minor differences:
 

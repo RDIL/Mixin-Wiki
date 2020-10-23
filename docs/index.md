@@ -6,3 +6,4 @@ Welcome to Mixin Wiki. This site is built to serve more in-depth documentation t
 
 - [Mixin's Javadoc](https://jenkins.liteloader.com/view/Other/job/Mixin/javadoc/)
 - [SpongePowered's Discord](https://discord.com/invite/sponge)
+- [ASM User Guide](https://asm.ow2.io/asm4-guide.pdf)

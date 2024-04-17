@@ -38,7 +38,7 @@ public class MixinSomeJavaFile {
     // signal that we want to inject into a method
     @Inject(
         method = "<init>",  // the jvm bytecode signature for the constructor
-        at = @At("HEAD")  // signal that this void should be run at the method HEAD, meaning the first opcode
+        at = @At("RETURN")  // inject at before return opcode (you cannot inject at HEAD for constructor)
     )
     public void constructorHead(
         // you will need to put any parameters the constructor accepts here, they will be the actual passed values
